@@ -1,5 +1,6 @@
 import os
 
+from src.SudokuBoard import SudokuBoard
 from src.SudokuSolver import SudokuSolver
 
 
@@ -42,7 +43,6 @@ def is_valid_board_format(board):
     return True
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     board = read_file('../resources/sample1.txt')
 
@@ -53,8 +53,8 @@ if __name__ == '__main__':
 
         if solution is not None:
             print("A solution has been found:")
-            for row in solution:
-                print([str(value) if value is not None else ' ' for value in row])
+            my_board = SudokuBoard(solution)
+            my_board.draw()
         else:
             print("The given board can't be resolved.")
     else:
